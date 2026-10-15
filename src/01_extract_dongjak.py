@@ -5,7 +5,7 @@ from pathlib import Path
 import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[1]
-raw = pd.read_csv(ROOT / "data" / "전국횡단보도표준데이터.csv", encoding="cp949", low_memory=False)
+raw = pd.read_csv(next((ROOT / "data").glob("*.csv")), encoding="cp949", low_memory=False)
 
 dj = raw[(raw["시도명"] == "서울특별시") & (raw["시군구명"].str.contains("동작", na=False))].copy()
 dj["L"] = pd.to_numeric(dj["횡단보도연장"], errors="coerce")   # 횡단보도 길이(m)
