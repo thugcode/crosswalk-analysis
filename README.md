@@ -6,12 +6,35 @@
 
 ## 실행 방법
 
+1. 저장소 내려받기
+
+```bash
+git clone https://github.com/thugcode/crosswalk-analysis.git
+cd crosswalk-analysis
+```
+
+2. 라이브러리 설치 (Python 3.9 이상)
+
 ```bash
 pip install -r requirements.txt
+```
+
+3. 전체 분석 실행 (Mac/Linux)
+
+```bash
 sh run_all.sh
 ```
 
-Python 3.9 이상에서 동작합니다. 결과는 `output/` 폴더에 저장됩니다.
+Windows에서는 아래 네 줄을 순서대로 실행합니다.
+
+```bash
+python src/01_extract_dongjak.py
+python src/02_deficit_analysis.py
+python src/03_simulation.py
+python src/04_regression.py
+```
+
+결과 파일은 `output/` 폴더에 저장되며, 실행 시간은 1분 이내입니다.
 
 ## 분석 단계
 
